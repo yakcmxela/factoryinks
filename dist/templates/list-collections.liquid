@@ -1,0 +1,36 @@
+<div class="container">
+  {% comment %}
+    This page represents the /collections and /products pages.
+  {% endcomment %}
+
+  <h1>{{ page_title }}</h1>
+  {% section 'rich-text' %}
+  <div class="list-collections__collections flex-columns-{{ settings.products_per_row }}">
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        <div class="list-collections__product flex-columns__item">
+          <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: title }}">
+            {% if collection.image != blank or collection.products.first != blank %}
+              {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
+              {% include 'responsive-image' with
+                image: image_object,
+                max_width: 480,
+                max_height: 480
+              %}
+            {% else %}
+              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+              {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+            {% endif %}
+          </a>
+
+          <p>
+            <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: title }}">{{ collection.title }}</a>
+          </p>
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+<div class="callout-container">
+  {% section 'callout' %}
+</div>

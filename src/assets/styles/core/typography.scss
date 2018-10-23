@@ -1,0 +1,88 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-body;
+  font-weight: $font-body-weight;
+  font-style: $font-body-style;
+  font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  color: $body-text-dk;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 0 0 2rem 0;
+  letter-spacing: 2px;
+  @media(max-width: $phablet) {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+h2 {
+  font-size: 4rem;
+  margin: 1rem 0;
+  letter-spacing: 2px;
+  @media(max-width: $phablet) {
+    font-size: 2.5rem;
+  }
+}
+
+h3 {
+  font-size: 3rem;
+  @media(max-width: $phablet) {
+    font-size: 1.5rem;
+  }
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+  font-size: 1.6rem;
+  color: $body-text-md;
+  @media(max-width: $phablet) {
+    font-size: 14px;
+  }
+}
+
+body,
+input,
+textarea,
+button,
+select {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+a {
+	text-decoration: none;
+  transition: all .1s linear;
+  color: $button-color;
+  &:hover {
+    color: $button-hover;
+  }
+}
+a:focus {
+  color: inherit;
+}

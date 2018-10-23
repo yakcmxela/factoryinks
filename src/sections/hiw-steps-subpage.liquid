@@ -1,0 +1,60 @@
+<section class="hiw-subpage-steps" data-section-type="hiw-subpage-steps" data-section-id="{{ section.id }}">
+  {% for block in section.blocks %}
+  	<div class="hiw-subpage-step">
+  		<div class="step__image" style="background-image: url({{ section.settings.step_image | img_url: 'master' }})">{{ forloop.index }}</div>
+  		<div class="step__content">
+  			{% if block.settings.heading != blank %}
+  				<h2>{{ block.settings.heading }}</h2>
+  			{% endif %}
+  			{% if block.settings.description != blank %}
+  				<p>{{ block.settings.description }}</p>
+  			{% endif %}
+  		</div>
+  	</div>
+  {% endfor %}
+  {% if section.settings.button_link != blank %}
+    <div class="hiw-subpage-steps__button">
+      <a href="{{ section.settings.button_link }}" title="{{ section.settings.link_text }}" class="button">{{ section.settings.link_text }}</a>
+    </div>
+  {% endif %}
+</section>
+{% schema %} 
+  {
+    "name": "How it Works",
+    "settings": [
+    	{
+    		"type": "image_picker",
+    		"id": "step_image", 
+    		"label": "Step Number Image"
+    	},
+    	{
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "link_text",
+        "label": "Link Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "step",
+        "name": "Step",
+        "settings": [
+          { 
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

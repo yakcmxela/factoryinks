@@ -1,0 +1,33 @@
+.button,
+.btn,
+button,
+input[type="submit"],
+.site-footer #customer_register_link,
+.site-footer #customer_login_link {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  border: 0;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+  appearance: none;
+  background-color: $button-color;
+  border: 4px solid $button-color;
+  color: $body-text-lt;
+  border-radius: 32px;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  min-width: 20rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all .25s ease-in-out;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0);
+  &:hover {
+    transform: translateY(-4px);
+    background-color: #FFF;
+    color: $button-color;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,.25);
+  }
+}

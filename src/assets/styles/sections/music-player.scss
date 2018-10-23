@@ -1,0 +1,80 @@
+.music-player {
+
+}
+
+.music-player__player {
+	display: flex;
+	align-items: flex-end;
+	width: 100%;
+	@media(max-width: $phablet) {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.music-player__songlist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	flex-shrink: 0;
+	padding-right: 5rem;
+	li {
+		padding: 1rem;
+		background-color: $body-text-lt;
+		display: flex;
+		align-items: center;
+		&:nth-child(2n) {
+			background-color: $body-text-lt-alt;
+		}
+	}
+	@media(max-width: $phablet) {
+		padding: 0;
+		margin-bottom: 5rem;
+	}
+}
+.music-player__play {
+	margin-left: auto;
+	position: relative;
+	height: 3rem;
+	width: 3rem;
+	.fa-play-circle,
+	.fa-pause-circle {
+		width: 3rem;
+		cursor: pointer;
+		position: absolute;
+		transition: all .25s linear;
+		path {
+			fill: $button-color;
+		}
+	}
+	&:hover {
+		transform: scale(1.1);
+		transition: all .15s linear;
+	}
+	&.paused {
+		.fa-play-circle {
+			opacity: 1;
+		}
+		.fa-pause-circle {
+			opacity: 0;
+		}
+	}
+	&.playing {
+		.fa-play-circle {
+			opacity: 0;
+		}
+		.fa-pause-circle {
+			opacity: 1;
+		}
+	}
+}
+.music-player__artist {
+
+}
+
+.music-player__track {
+	color: $button-color;
+	font-weight: 700;
+	margin-right: 1rem;
+}

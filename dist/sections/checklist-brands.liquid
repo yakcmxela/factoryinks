@@ -1,0 +1,96 @@
+<section class="checklist-brands" style="background-image: url({{ section.settings.image | img_url: 'master' }});" data-section-type="checklist-brands" data-section-id="{{ section.id }}">
+	<div class="container">
+		<div class="checklist-brands__checklist">
+			{% if section.settings.checklist_heading != blank %}
+				<h2>{{ section.settings.checklist_heading }}</h2>
+			{% endif %}
+			<div class="checklist-brands__mobile-check">
+				{% include 'icon-checklist_check' %}
+			</div>
+			<ul>
+				{% for block in section.blocks %}
+					{% if block.type == 'checklist_item' %}
+						<li>{% include 'icon-checklist_check' %}{{ block.settings.item }}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="checklist-brands__brands">
+			{% if section.settings.brands_heading != blank %}
+				<h3>{{ section.settings.brands_heading }}</h3>
+			{% endif %}
+			<div class="checklist-brands__logos">
+				{% for block in section.blocks %}
+					{% if block.type == 'brand_logo' %}
+						<img src="{{ block.settings.logo | img_url: '100x' }}">
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+		{% if section.settings.button_link != blank %}
+	 		<a class="checklist-brands__link button" href="{{ section.settings.button_link }}" title="{{ section.settings.link_text }}">{{ section.settings.link_text }}</a>
+	 	{% endif %}
+	</div>
+</section>
+{% schema %}
+	{
+		"name": "Checklist & Brands",
+		"settings": [
+			{
+	      "type": "image_picker",
+	      "id": "image", 
+	      "label": "Background Image"
+	    },
+			{
+	      "type": "text",
+	      "id": "checklist_heading",
+	      "label": "Checklist Heading"
+	    },
+	    {
+	      "type": "text",
+	      "id": "brands_heading",
+	      "label": "Brands List Heading"
+	    },
+	    {
+	    	"type": "url",
+	    	"id": "button_link",
+	    	"label": "Button Link"
+	    },
+	    {
+	    	"type": "text",
+	    	"id": "link_text",
+	    	"label": "Link Text"
+	    }
+		],
+		"blocks": [
+			{
+				"type": "checklist_item",
+				"name": "Checklist Item",
+				"settings": [
+					{
+						"type": "text",
+						"id": "item",
+						"label": "List Item"
+					}
+				]
+			},
+			{
+				"type": "brand_logo",
+				"name": "Brand Logo",
+				"settings": [
+					{
+						"type": "image_picker",
+						"id": "logo",
+						"label": "Logo"
+					}
+				]
+			}
+		],
+		"presets": [
+	      {
+	        "name": "Checklist & Brands",
+	        "category": "Promotional"
+	      }
+	   ]
+	}
+{% endschema %}

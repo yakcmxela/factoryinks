@@ -1,0 +1,111 @@
+{% if section.settings.background_image != blank %}
+	{% assign background_image = section.settings.background_image %}
+{% else %}
+	{% assign background_image = settings.callout_background_image %}
+{% endif %}
+{% if section.settings.color_overlay != 'default' %}
+	{% assign overlay = section.settings.color_overlay %}
+{% else %}
+	{% assign overlay = settings.callout_color_overlay %}
+{% endif %}
+<section class="callout callout__{{ overlay }}" style="background-image: url({{ background_image | img_url: 'master' }});" data-section-type="callout" data-section-id="{{ section.id }}">
+	<div class="callout__overlay callout__{{ overlay }}"></div>
+	<div class="container">
+		{% if section.settings.heading != blank %}
+			<h2>{{ section.settings.heading }}</h2>
+		{% elsif settings.callout_heading != blank %}
+			<h2>{{ settings.callout_heading }}</h2>
+		{% endif %}
+		{% if section.settings.caption != blank %}
+			<p>{{ section.settings.caption }}</p>
+		{% elsif settings.callout_caption != blank %}
+			<p>{{ settings.callout_caption }}</p>
+		{% endif %}
+		
+		{% if section.settings.button_link != blank %}
+      {% assign button_link = section.settings.button_link %}
+    {% elsif settings.callout_button_link != blank %}
+      {% assign button_link = settings.callout_button_link %}
+    {% endif %}
+
+    {% if section.settings.button_text != blank %}
+      {% assign button_text = section.settings.button_text %}
+    {% elsif settings.callout_button_text != blank %}
+      {% assign button_text = settings.callout_button_text %}
+    {% endif %}
+     
+		<div class="callout__link">
+			<a class="button" href="{{ button_link }}" title="{{ page.title }}">{{ button_text }}</a>
+		</div>
+	</div>
+</section>
+{% schema %}
+	{
+		"name": "Callout",
+		"settings": [
+			{
+				"type": "image_picker",
+				"id": "background_image",
+				"label": "Background image"
+			},
+			{
+				"type": "select",
+				"id": "color_overlay",
+				"label": "Overlay Color",
+				"options": [
+					{
+						"value": "default",
+						"label": "Default"
+					},
+					{
+						"value": "green",
+						"label": "Brand Green"
+					},
+					{
+						"value": "purple",
+						"label": "Brand Purple"
+					},
+					{
+						"value": "dark",
+						"label": "Body Text Dark"
+					},
+					{
+						"value": "light",
+						"label": "Body Text Light"
+					},
+					{
+						"value": "button",
+						"label": "Button Color"
+					}
+				]
+			},
+			{
+				"type": "text",
+				"id": "heading",
+				"label": "Heading",
+				"default": "“Where’d You Get That Rad T-shirt?!”"
+			},
+			{
+				"type": "textarea",
+				"id": "caption",
+				"label": "Caption"
+			},
+			{
+				"type": "url",
+				"id": "button_link",
+				"label": "Button Link"
+			},
+			{
+				"type": "text",
+				"id": "button_text",
+				"label": "Link Text"
+			}
+		],
+		"presets": [
+      {
+        "name": "Callout",
+        "category": "Feature"
+      }
+    ]
+	}
+{% endschema %}

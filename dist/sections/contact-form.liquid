@@ -1,0 +1,107 @@
+<section class="contact__form-section" data-section-type="contact-form" data-section-id="{{ section.id }}" style="background-image: url({{ section.settings.background_image | img_url: 'master' }})">
+  <div class="container contact__columns">
+    <div class="contact__social">
+      {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+      <div class="contact__social-container" style="background-image: url({{ section.settings.social_background | img_url: 'master' }})">
+        <ul class="contact__social-links">
+        {% for social in social_accounts %}
+          {%- assign social_handle = social | handleize -%}
+          {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+          {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+          {% if settings[social_link] != blank %}
+            <li>
+              <a target="_blank" href="{{ settings[social_link] }}" title="{{ social_handle }}">
+                {% include social_icon %}
+                <span class="icon-fallback-text">{{ social }}</span>
+              </a>
+            </li>
+          {% endif %}
+
+        {% endfor %}
+        {% if shop.email != blank %}
+          <li>
+            <a href="mailto:{{ shop.email }}">
+              {% include 'icon-email' %}
+            </a>
+          </li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="contact__form">
+      {% form 'contact' %}
+
+        {% if form.posted_successfully? %}
+          <script>
+          window.location = "/pages/thank-you";
+          </script>
+        {% endif %}
+
+        {{ form.errors | default_errors }}
+
+        <label for="ContactFormFirstName">First Name</label>
+        <input type="text"
+          name="contact[First Name]"
+          id="ContactFormFirstName"
+          placeholder="First Name"
+          required>
+
+        <label for="ContactFormLastName">Last Name</label>
+        <input type="text"
+          name="contact[Last Name]"
+          id="ContactFormName"
+          placeholder="Last Name"
+          required>
+
+        <label for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+        <input type="email"
+          name="contact[email]"
+          id="ContactFormEmail"
+          placeholder="{{ 'contact.form.email' | t }}"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off">
+
+        <label for="ContactFormPhone">Phone</label>
+        <input type="tel"
+          name="contact[Phone]"
+          id="ContactFormPhone"
+          placeholder="Phone"
+          pattern="[0-9\-]*"
+          required>
+
+        <label for="ContactFormMessage">Message</label>
+        <textarea rows="10"
+          name="contact[Message]"
+          id="ContactFormMessage"
+          placeholder="Message"
+          required>
+        </textarea>
+ 
+        <div class="contact__form-button">
+          <input type="submit" class="button" value="{{ 'contact.form.send' | t }}">
+          <span>All fields required.</span>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</section>
+{% schema %}
+   {
+    "name": "Contact Form",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_background",
+        "label": "Social Background Image"
+      }
+    ]
+  }
+{% endschema %}

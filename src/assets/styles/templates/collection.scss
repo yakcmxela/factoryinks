@@ -1,0 +1,15 @@
+.template-collection {
+	h1 {
+		@media(max-width: $phablet) {
+			text-align: center;
+		}
+	}
+	.collection {
+		.flex-columns__item {
+			text-align: center;
+		}
+	}
+	.collection__products {
+		margin-top: 5rem;
+	}
+}

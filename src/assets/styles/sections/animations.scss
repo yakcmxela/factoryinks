@@ -1,0 +1,117 @@
+.animation {
+	position: relative;
+}
+.animation__ink-globs {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 11;
+	height: 500px;
+	width: 35vw;
+	@media(max-width: $phablet) {
+		display: none;
+	}
+	img {
+		position: absolute;
+		right: 0;
+		max-width: 200px;
+		transition: all 3s cubic-bezier(0, 0, 0.2, 1);
+		&:nth-child(1) {
+			top: 0;
+			right: 20%;
+			z-index: 2;
+		}
+		&:nth-child(2) {
+			top: -50%;
+			right: 0;
+			z-index: 3;
+		}
+		&:nth-child(3) {
+			top: 10%;
+			right: 30%;
+			z-index: 1;
+		}
+		&:nth-child(4) {
+			top: 0%;
+			right: 0%;
+			z-index: 3;
+		}
+		&:nth-child(5) {
+			top: 40%;
+			right: 27%;
+			max-width: 150px;
+			z-index: 1;
+		}
+		&:nth-child(6) {
+			top: 110%;
+			right: 10%;
+			z-index: 2;
+		}
+		&:nth-child(7) {
+			top: 80%;
+			right: 0;
+			z-index: 1;
+		}
+	}
+}
+.animation__blank-to-print {
+	text-align: center;
+	svg {
+		overflow: visible;
+		max-width: 70vw;
+	}
+	.star,
+	.blank,
+	.symbol,
+	.shirt-printed {
+		opacity: 0;
+		transition: all .75s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+		transform-origin: center center;
+	}
+	.blank {
+		transform: translateY(-100%) scale(.5);
+	}
+	.star {
+		transform: translateY(100%) scale(.5);
+	}
+	.shirt-printed {
+		transform: translateY(-12px) scale(.5);
+	}
+	.symbol {
+		transform: translateX(-32px) skew(-30deg) scale(1);
+		opacity: 0;
+	}
+	&.animated {
+		.star,
+		.blank,
+		.shirt-printed {
+			transform: translateY(0) scale(1);
+			opacity: 1;
+		}
+		.symbol {
+			transform: translateX(0px) skew(0deg) scale(1);
+			opacity: 1;
+		}
+		.blank {
+			transition-delay: 0s;
+		}
+		.plus {
+			transition-delay: .35s;
+		}
+		.star {
+			transition-delay: .7s;
+		}
+		.equals {
+			transition-delay: 1.25s;
+		}
+		.shirt-printed {
+			transition-delay: 1.75s;
+		}
+	}
+	@media(max-width: 600px) {
+		h2 {
+			font-size: 1.5rem;
+		}
+	}
+}

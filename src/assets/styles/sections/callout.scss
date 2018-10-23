@@ -1,0 +1,92 @@
+.callout-container {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 10rem;
+		z-index: 9;
+		background-color: #FFF;
+	}
+	&:before {
+		top: 2rem;
+		transform: skew(0, -1deg) translateY(-50%);
+	}
+	h2 {
+		margin-top: 0;
+	}
+}
+
+.callout {
+	padding: 20rem 0;
+	background-size: cover;
+	text-align: center;
+	position: relative;
+	.container {
+		position: relative;
+		z-index: 2;
+	}
+	p {
+		max-width: 85%;
+		margin: 2.5rem auto;
+	}
+	@media(max-width: $phablet) {
+		padding: 15rem 0 15rem 0;
+	}
+}
+.template-index {
+	@media(max-width: $phablet) {
+		.callout {
+			padding: 10rem 0 15rem 0;
+		}
+	}
+}
+
+.callout__overlay {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	opacity: .6;
+}
+
+.callout__button { 
+	background-color: $button-color;
+	h1, h2, h3, p, ul, li {
+		color: #FFF;
+	}
+}
+.callout__white {
+	background-color: #FFF;
+	h1, h2, h3, p, ul, li {
+		color: $body-text-dk;
+	}
+}
+.callout__green {
+	background-color: $brand-green;
+	h1, h2, h3, p, ul, li {
+		color: #FFF;
+	}
+}
+.callout__purple {
+	background-color: $brand-purple;
+	h1, h2, h3, p, ul, li {
+		color: $body-text-lt;
+	}
+}
+.callout__light {
+	background-color: $body-text-lt;
+	h1, h2, h3, p, ul, li {
+		color: $body-text-dk;
+	}
+}
+.callout__dark {
+	background-color: $body-text-dk;	
+	h1, h2, h3, p, ul, li {
+		color: #FFF;
+	}
+}

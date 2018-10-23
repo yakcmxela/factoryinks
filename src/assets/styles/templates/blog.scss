@@ -1,0 +1,63 @@
+.template-blog {
+	h1 {
+		@media(max-width: $phablet) {
+			text-align: center;
+		}
+	}
+	.blog__article {
+		text-align: center;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		h3 {
+			font-family: $font-callout;
+			a {
+				color: $brand-green;
+			}
+			&:after {
+				content: '';
+				display: block;
+				margin: auto;
+				width: 10rem;
+				height: 2rem;
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-image: url(./../images/pencil-underline-1-purple.png);
+			}
+		}
+		&:nth-child(2n) {
+			h3 {
+				&:after {
+			  		background-image: url(./../images/pencil-underline-2-purple.png);
+			  	}
+			}
+		}
+	}
+	.blog__post-meta {
+		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0;
+		font-size: 1.1rem;
+		flex-wrap: wrap;
+		li {
+			flex-shrink: 0;
+			&:before {
+				content: '|';
+				margin-left: .5rem;
+				padding-right: .5rem;
+			}
+			&:first-of-type {
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+	.blog__read-more {
+
+	}
+}

@@ -1,0 +1,301 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Makespace theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Shopify",
+    "theme_documentation_url": "https://github.com/Shopify/starter-theme",
+    "theme_support_url": "https://github.com/Shopify/starter-theme/issues"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_body_dark",
+        "label": "Body Text Dark",
+        "default": "#101820"
+      },
+      {
+        "type": "color",
+        "id": "color_body_mid",
+        "label": "Body Text Mid",
+        "default": "#464646"
+      },
+      {
+        "type": "color",
+        "id": "color_body_light",
+        "label": "Body Text Light",
+        "default": "#f7f3de"
+      },
+      {
+        "type": "color",
+        "id": "color_main_bg",
+        "label": "Background",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button Color",
+        "default": "#e1523d"
+      },
+      
+      {
+        "type": "color",
+        "id": "brand_green",
+        "label": "Brand Green",
+        "default": "#279989"
+      },
+      {
+        "type": "color",
+        "id": "brand_purple",
+        "label": "Brand Purple",
+        "default": "#612141"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "default": "helvetica_n4",
+        "label": "Headings"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "default": "helvetica_n4",
+        "label": "Body text"
+      },
+      {
+        "type": "select",
+        "id": "font_heading_custom",
+        "default": "Shrikhand",
+        "label": "Custom Heading Font",
+        "options": [
+          {
+            "value": "Gloria Hallelujah",
+            "label": "Gloria Hallelujah"
+          },
+          {
+            "value": "Shrikhand",
+            "label": "Shrikhand"
+          },
+          {
+            "value": "",
+            "label": "Default"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "font_callout_custom",
+        "default": "Gloria Hallelujah",
+        "label": "Custom Callout Font",
+        "options": [
+          {
+            "value": "Gloria Hallelujah",
+            "label": "Gloria Hallelujah"
+          },
+          {
+            "value": "Shrikhand",
+            "label": "Shrikhand"
+          },
+          {
+            "value": "",
+            "label": "Default"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing image"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Image",
+        "info": "Shown when sharing a link on social media. [Learn more](https://help.shopify.com/manual/using-themes/troubleshooting/showing-social-media-thumbnail-images/) about image thumbnails."
+      },
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable sharing for blog articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Sharing links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest link"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat link"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr link"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo link"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Collection Settings",
+    "settings": [
+      {
+        "type": "range",
+        "id": "products_per_row",
+        "label": "Product Per Row",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 3
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name": "Callout",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "callout_background_image",
+        "label": "Lower background image"
+      },
+      {
+        "type": "select",
+        "id": "callout_color_overlay",
+        "label": "Overlay Color",
+        "options": [
+          {
+            "value": "green",
+            "label": "Brand Green"
+          },
+          {
+            "value": "purple",
+            "label": "Brand Purple"
+          },
+          {
+            "value": "dark",
+            "label": "Body Text Dark"
+          },
+          {
+            "value": "light",
+            "label": "Body Text Light"
+          },
+          {
+            "value": "button",
+            "label": "Button Color"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "callout_heading",
+        "label": "Heading",
+        "default": "“Where’d You Get That Rad T-shirt?!”"
+      },
+      {
+        "type": "textarea",
+        "id": "callout_caption",
+        "label": "Caption",
+        "default": "You’ll get used to it, the random strangers coming up to you and asking about your custom-made Factory Inks t-shirt. Alas, with great apparel comes great responsibility, and yours is to save the world from boring t-shirts. Godspeed."
+      },
+      {
+        "type": "url",
+        "id": "callout_button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "callout_button_text",
+        "label": "Button Text"
+      }
+    ]
+  }
+]

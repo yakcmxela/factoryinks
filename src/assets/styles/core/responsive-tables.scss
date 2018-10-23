@@ -1,0 +1,132 @@
+.responsive-table {
+  width: 100%;
+  text-align: center;
+  border-spacing: 0px;
+  thead {
+      th {
+        padding-bottom: 1rem;
+        color: $brand-green;
+        font-family: $font-callout;
+        &:after {
+          content: '';
+          display: block;
+          margin: auto;
+          width: 10rem;
+          height: 2rem;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-image: url(./../images/pencil-underline-1-purple.png);
+        }
+        &:nth-child(2n) {
+           &:after {
+            background-image: url(./../images/pencil-underline-2-purple.png);
+          }
+        }
+      }
+    }
+    table {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px dashed rgba(0,0,0,.1);
+      text-align: center;
+    }
+    td,
+  p {
+    font-size: 1.4rem;
+  }
+  td {
+    padding: 1rem 0;
+    background-color: rgba(0,0,0,.025);
+    @include media-query($small) {
+      padding: 1rem;
+    }
+  }
+  tr {
+    &:nth-child(2n) {
+      td {
+        background-color: #FFF;
+      }
+    }
+  }
+  .font__co {
+    font-family: $font-callout;
+    font-size: 1.6rem;
+    color: $brand-green;
+    &:after {
+          content: '';
+          display: block;
+          width: 10rem;
+          height: 2rem;
+          margin: auto;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-image: url(./../images/pencil-underline-1-purple.png);
+        }
+  }
+  .font__co-table {
+    padding: 1rem;
+  }
+  .font__co-table::before {
+    font-family: $font-callout;
+    font-size: 1.6rem;
+    color: $brand-green;
+  }
+}
+@include media-query($small) {
+  .responsive-table {
+    width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+    }
+
+    // IE9 table layout fixes
+    tr,
+    td {
+      float: left;
+      clear: both;
+      width: 100%;
+    }
+
+    th,
+    td {
+      display: block;
+      margin: 0;
+      padding: $grid-gutter / 2;
+      text-align: right;
+    }
+
+    input[type="number"] {
+      margin-top: 1rem;
+    }
+
+    td::before {
+      content: attr(data-label);
+      float: left;
+      padding-right: 10px;
+      text-align: center;
+    }
+  }
+
+  // Add a keyline between rows
+  .responsive-table-row + .responsive-table-row,
+  tfoot > .responsive-table-row:first-child {
+    position: relative;
+    padding-top: $grid-gutter / 2;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      display: block;
+      border-bottom: 1px dashed rgba(0,0,0,.1)
+    }
+  }
+}

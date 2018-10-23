@@ -1,0 +1,31 @@
+<style>
+  {{ settings.font_heading | font_face }}
+  {{ settings.font_body | font_face }}
+
+  {%- assign font_body_bold = settings.font_body | font_modify: 'weight', 'bolder' -%}
+  {%- assign font_body_bold_italic = font_body_bold | font_modify: 'style', 'italic' -%}
+  
+  {{ font_body_bold | font_face }}
+  {{ font_body_bold_italic | font_face }}
+
+  :root {
+
+    --button-color: {{ settings.button_color }};
+    --button-hover: {{ settings.button_color | color_modify: 'alpha', 0.35 }};
+    --brand-green: {{ settings.brand_green }};
+    --brand-purple: {{ settings.brand_purple }};
+    --body-text-lt: {{ settings.color_body_light }};
+    --body-text-lt-alt: {{ settings.color_body_light | color_modify: 'alpha', 0.35 }};
+    --body-text-md: {{ settings.color_body_mid }};
+    --body-text-dk: {{ settings.color_body_dark }};
+    --color-main-background: {{ settings.color_main_bg }};
+    --color-border: {{ settings.color_body_text | color_lighten: 50 }};
+
+    --font-heading: {{ settings.font_heading_custom }}, {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
+    --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+    --font-callout: {{ settings.font_callout_custom }}, {{ settings.font_body.family }};
+    --font-body-weight: {{ settings.font_body.weight }};
+    --font-body-style: {{ settings.font_body.style }};
+    --font-body-bold-weight: {{ font_body_bold.weight | default: 'bold' }};
+  }
+</style>

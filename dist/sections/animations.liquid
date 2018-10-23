@@ -1,0 +1,62 @@
+<section class="animation" data-section-type="animations" data-section-id="{{ section.id }}">
+  {% if section.settings.animation == 'ink_globs' %}
+    <div class="animation__ink-globs">
+      {% for block in section.blocks %}
+        <img class="{{ block.settings.classname }} animation__ink-globs-image" src="{{ block.settings.image.src | img_url: 'master' }}">
+      {% endfor %}
+    </div>
+  {% elsif section.settings.animation == 'blank_to_print' %}
+  	<div class="animation__blank-to-print">
+  		{% include 'icon-blank_to_print' %}
+  	</div>
+  {% endif %}
+</section>
+{% schema %}
+  {
+    "name": "Animation",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "select",
+        "id": "animation",
+        "default": "ink_globs",
+        "label": "Select Animation",
+        "options": [
+          {
+            "value": "ink_globs",
+            "label": "Ink Globs"
+          },
+          {
+            "value": "blank_to_print",
+            "label": "Blank to Print Shirt"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+     {
+      "type": "ink_glob",
+      "name": "Ink Glob",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Ink Image"
+        },
+        {
+          "type": "text",
+          "id": "classname",
+          "label": "CSS Class Name"
+        }
+      ]
+     }
+    ],
+    "presets": [
+      {
+        "name": "Animation",
+        "category": "Feature"
+      }
+    ]
+  }
+  
+{% endschema %}

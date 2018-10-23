@@ -1,0 +1,141 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Blog posts" section in the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the blog posts section
+  - Blog (which blog category to show in your store)
+
+  Theme Store optional settings
+  - Number of posts to show
+  - Show author
+  - Show date
+{%- endcomment -%}
+<section class="blog-posts blog-posts__{{ section.settings.background_color }}" data-section-type="blog-posts" data-section-id="{{ section.id }}">
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <h2>{{ section.settings.title | escape }}</h2>
+    {% endif %}
+
+    {%- assign blog = blogs[section.settings.blog] -%}
+
+    {%- comment -%}
+      Due to accessibility requirements, the Blog entries list functions
+      as a list of content items. Non-visual users will expect lists of content
+      to appear in a list structure, allowing for easier understanding and navigation of list items.
+    {%- endcomment -%}
+    <ul class="blog-posts_list">
+      {% for article in blog.articles limit: section.settings.post_limit %}
+        <li class="blog-posts__post">
+          <h3>{{ article.title }}</h3>
+          <ul class="blog-posts__meta">
+            {% if section.settings.blog_show_date %}
+              <li>{{ article.published_at | time_tag: '%m.%d.%Y' }}</li>
+            {% endif %}
+            {% assign wc = article.content | strip_html | split: " " | size %}
+            {% assign wpm = 200.00 %}
+            {% assign min = wc | divided_by: wpm | round: 1 %}
+            {% if min > 1 %}
+              <li>{{ min }} Min Read Time</li>
+            {% else %}
+              <li>1 Min Read Time</li>
+            {% endif %}
+            {% if section.settings.blog_show_author %}
+              <li>{{ 'blogs.article.by_author' | t: author: article.author }}</li>
+            {% endif %}
+          </ul>
+
+          <div class="blog-posts__excerpt">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }} <a href="{{ article.url }}" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">Read More</a>
+            {% else %}
+              {{ article.content | strip_html | truncate: 150 }} <a href="{{ article.url }}" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">Read More</a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <a class="button" href="{{ blog.url }}">All Blogs</a>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Blog posts",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Blog posts"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background Color",
+        "options": [
+          {
+            "value": "green",
+            "label": "Brand Green"
+          },
+          {
+            "value": "purple",
+            "label": "Brand Purple"
+          },
+          {
+            "value": "dark",
+            "label": "Body Text Dark"
+          },
+          {
+            "value": "light",
+            "label": "Body Text Light"
+          },
+          {
+            "value": "button",
+            "label": "Button Color"
+          },
+          {
+            "value": "white",
+            "label": "White"
+          }
+        ]
+      },
+      {
+        "id": "blog",
+        "type": "blog",
+        "label": "Blog"
+      },
+      {
+        "type": "range",
+        "id": "post_limit",
+        "label": "Posts",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_author",
+        "label": "Show author",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_date",
+        "label": "Show date",
+        "default": true
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog posts",
+        "category": "Blog",
+        "settings": {
+          "blog": "News",
+          "post_limit": 3
+        }
+      }
+    ]
+  }
+{% endschema %}

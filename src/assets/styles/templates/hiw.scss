@@ -1,0 +1,33 @@
+#how-it-works {
+	h3 {
+		margin: 0;
+	}
+	.hiw-subpage-step {
+		display: flex;
+		align-items: start;
+	}
+	.step__image {
+		font-size: 3rem;
+		font-family: $font-heading;
+		padding: 5rem;
+		margin-right: 3rem;
+		display: block;
+		width: 150px;
+		background-image: url(./../images/ink-splat.png);
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+		color: #FFF;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hiw-subpage-steps__button {
+		text-align: center;
+	}
+
+	.callout-container {
+		position: relative;
+	}
+}

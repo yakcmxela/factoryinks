@@ -1,0 +1,50 @@
+.template-login {
+	#CustomerLoginForm {
+		margin-bottom: 12rem;
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		    justify-content: center;
+		    input {
+		    	min-width: 350px;
+		    	@media(max-width: 400px) {
+		    		min-width: 300px;
+		    	}
+		    }
+		    .button {
+		    	min-width: 200px;
+		    }
+		    a {
+		    	display: block;
+		    	margin: .5rem 0;
+		    }
+		}
+	}
+}
+
+#RecoverPasswordForm {
+	form {
+		display: flex;
+		flex-wrap: wrap;
+		input {
+			width: 100%;
+		}
+		.button,
+		button {
+			width: auto;
+			margin: 0;
+			@media(max-width: 500px) {
+				width: 100%;
+				margin: .5rem 0;
+				margin-left: 0;
+			}
+		}
+		button {
+			margin-left: 1rem;
+			@media(max-width: 500px) {
+				margin-left: 0;
+			}
+		}
+	}
+}

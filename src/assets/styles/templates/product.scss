@@ -1,0 +1,34 @@
+.product-single__thumbnail-image {
+	h1 {
+		@media(max-width: $phablet) {
+			text-align: center;
+		}
+	}
+  border: 2px solid transparent;
+
+  .active-thumbnail & {
+    border-color: $color-border;
+  }
+}
+.product__container {
+	display: flex; 
+	justify-content: space-between;
+	@include media-query($small) {
+		flex-direction: column;
+	}
+	.rte {
+		margin-top: 2rem;
+	}
+}
+.product__image {
+	width: 38%;
+	@include media-query($small) {
+		width: 100%;
+	}
+}
+.product__content {
+	width: 60%;
+	@include media-query($small) {
+		width: 100%;
+	}
+}

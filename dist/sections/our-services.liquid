@@ -1,0 +1,121 @@
+<section class="our-services our-services__{{ section.settings.background_color }}" data-section-type="our-services" data-section-id="{{ section.id }}">
+	<div class="our-services__overlay our-services__{{ section.settings.background_color }}"></div>
+	<div class="our-services__parallax">
+		{% for block in section.blocks %}
+			<img class="our-services__parallax_image" src="{{ block.settings.parallax_image | img_url: '300x' }}">
+		{% endfor %}
+	</div>
+	<div class="our-services__content">
+		{% if section.settings.heading != blank %}
+			<h2>{{ section.settings.heading }}</h2>
+		{% endif %}
+		{% if section.settings.description != blank %}
+			<p>{{ section.settings.description }}</p>
+		{% endif %}
+		{% if section.settings.links_label != blank %}
+			<h3>{{ section.settings.links_label }}</h3>
+		{% endif %}
+		<div class="our-services__links">
+			{% if section.settings.button_link_1 != blank %}
+				<a href="{{ section.settings.button_link_1 }}" class="button">{{ section.settings.button_text_1 | escape }}</a>
+			{% endif %}
+			{% if section.settings.button_link_2 != blank %}
+				<a href="{{ section.settings.button_link_2 }}" class="button">{{ section.settings.button_text_2 | escape }}</a>
+			{% endif %}
+		</div>
+	</div>
+	<img src="{{ section.settings.background_image | img_url: 'master' }}" class="our-services__background-image">
+</section>
+{% schema %}
+	{
+		"name": "Our Services",
+		"settings": [
+			{
+				"type": "text",
+				"id": "heading",
+				"label": "Heading"
+			},
+			{
+				"type": "textarea",
+				"id": "description",
+				"label": "Description"
+			},
+			{
+				"type": "text",
+				"id": "links_label",
+				"label": "Label for Links"
+			},
+			{
+				"type": "url",
+				"id": "button_link_1",
+				"label": "Button Link 1"
+			},
+			{
+				"type": "text",
+				"id": "button_text_1",
+				"label": "Button Text 1"
+			},
+			{
+				"type": "url",
+				"id": "button_link_2",
+				"label": "Button Link 2"
+			},
+			{
+				"type": "text",
+				"id": "button_text_2",
+				"label": "Button Text 2"
+			},
+			{
+				"type": "image_picker",
+				"id": "background_image",
+				"label": "Lower background image"
+			},
+			{
+				"type": "select",
+				"id": "background_color",
+				"label": "Background Color",
+				"options": [
+					{
+						"value": "green",
+						"label": "Brand Green"
+					},
+					{
+						"value": "purple",
+						"label": "Brand Purple"
+					},
+					{
+						"value": "dark",
+						"label": "Body Text Dark"
+					},
+					{
+						"value": "light",
+						"label": "Body Text Light"
+					},
+					{
+						"value": "button",
+						"label": "Button Color"
+					}
+				]
+			}
+		],
+		"blocks": [
+			{
+				"type": "parallax_image",
+				"name": "Parallax Image",
+				"settings": [
+					{
+						"type": "image_picker",
+						"id": "parallax_image",
+						"label": "Parallax Image"
+					}
+				]
+			}
+		],
+		"presets": [
+	      {
+	        "name": "Our Services",
+	        "category": "Feature"
+	      }
+	  ]
+	}
+{% endschema %}

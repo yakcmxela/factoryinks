@@ -1,0 +1,84 @@
+.template-article {
+	h1 {
+		margin-bottom: 0;
+		@media(max-width: $phablet) {
+			text-align: center;
+		}
+	}
+	.article {
+		padding-bottom: 8rem;
+	}
+	article {
+		background-color: #FFF;
+		z-index: 11;
+	}
+	.hero-banner {
+		margin: 2.5rem 0;
+	}
+	.article__meta {
+		text-transform: uppercase;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		list-style: none;
+		padding: 0;
+		margin: 2rem 0;
+		font-size: 1.1rem;
+		@media(max-width: $phablet) {
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		li {
+			flex-shrink: 0;
+			&:before {
+				content: '|';
+				margin-left: .5rem;
+				padding-right: .5rem;
+			}
+			&:first-of-type {
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+	.social-sharing {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		margin: 2.5rem 0 1rem 0;
+		svg {
+			height: 3rem;
+			width: 3rem;
+			margin: 0 .25rem;
+			transition: all .15s linear;
+			path {
+				fill: #000;
+				transition: all .15s linear;
+			}
+			&:hover {
+				path {
+					fill: $button-color;
+				}
+			}
+		}
+		span {
+			opacity: 0;
+			position: absolute;
+			z-index: -1;
+		}
+	}
+	#comments {
+		ul {
+			list-style: none;
+		}
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		.button {
+			align-self: flex-start;
+		}
+	}
+}

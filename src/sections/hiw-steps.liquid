@@ -1,0 +1,91 @@
+<section class="hiw" data-section-type="hiw-steps" data-section-id="{{ section.id }}">
+  <h2 class="hiw__heading">{{ section.settings.heading }}</h2>
+  <div class="hiw__container">
+    <div class="hiw__image-container">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | img_url: 'master' }}" class="hiw__cover-image">
+      {% endif %}
+      <div class="hiw__slides-images">
+        {% for block in section.blocks %}
+          <img src="{{ block.settings.slide_image | img_url: '300x' }}" class="hiw__slide-image">
+        {% endfor %}
+      </div>
+    </div>
+    <div class="hiw__slides-content">
+      <div class="hiw__slides">
+        {% for block in section.blocks %}
+          <div class="hiw__slide">
+            <span class="hiw__step-label">Step {{ forloop.index }}</span>
+            {% if block.settings.slide_heading != blank %}
+               <h2>{{ block.settings.slide_heading }}</h2>
+            {% endif %}
+            {% if block.settings.slide_caption != blank %}
+              <p>{{ block.settings.slide_caption }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="hiw_link">
+        {% if section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" title="{{ section.settings.link_text }}" class="button">{{ section.settings.link_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "How it Works (Steps)",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Slide Image Container"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "link_text",
+        "label": "Link Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "hiw_slide",
+        "name": "How it Works Slide",
+        "settings": [
+          { 
+            "type": "text",
+            "id": "slide_heading",
+            "label": "Slide Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "slide_caption",
+            "label": "Slide Caption"
+          },
+          {
+            "type": "image_picker",
+            "id": "slide_image",
+            "label": "Slide Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "How it Works (Steps)",
+        "category": "Feature"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,12 @@
+.breadcrumb {
+	text-align: right;
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+}
+span {
+	padding: 2px;
+}
+@media(max-width: $phablet) {
+	opacity: 0;
+	pointer-events: none;
+}

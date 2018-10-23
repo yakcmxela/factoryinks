@@ -1,0 +1,19 @@
+.article__pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.page {
+		display: block;
+	}
+	@media(max-width: $tablet) {
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+.pagination {
+	border-top: 1px solid rgba(0,0,0,.05);
+	padding-top: 3rem;
+	text-align: center;
+	margin: 3rem 0;
+}

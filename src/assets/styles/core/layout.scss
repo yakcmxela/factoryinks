@@ -1,0 +1,46 @@
+html {
+  background-color: $color-body;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+	padding-top: 160px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	&.template-index {
+		padding-top: 0;
+	}
+	@media(max-width: $phablet) {
+		padding-top: 120px;
+	}
+}
+
+main {
+	position: relative;
+}
+
+.template-account,
+.template-addresses,
+.template-login,
+.template-register,
+.template-,
+#challenge {
+	display: flex;
+	flex-direction: column;
+	#shopify-section-footer {
+		margin-top: auto;
+	}
+}

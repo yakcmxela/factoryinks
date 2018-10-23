@@ -1,0 +1,6 @@
+development:
+  password: 208b81d174401a9bff4684835ff841a1
+  theme_id: "33960722491"
+  store: factoryinks.myshopify.com
+  ignore_files:
+  - config/settings_data.json

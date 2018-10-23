@@ -1,0 +1,130 @@
+.testimonials {
+	padding: 12rem 0 15rem 0;
+	text-align: center;
+	position: relative;
+	z-index: 3;
+	@media(max-width: $phablet) {
+		padding: 2rem 0 10rem 0;
+	}
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 10rem;
+		@media(max-width: $phablet) {
+			height: 7rem;
+		}
+	}
+	&:before {
+		top: -3rem;
+		transform: skew(0, -1deg) translateY(-2rem);
+	}
+	&:after {
+		bottom: -2rem;
+		transform: skew(0, 1deg) translateY(-1rem);
+	}
+	.arrow {
+		background-color: $button-color;
+		color: $body-text-lt;
+		width: 3rem;
+		height: 3rem;
+		position: absolute;
+		bottom: -5rem;
+		left: 50%;
+		transform: translateX(-110%);
+		border-radius: 100%;
+		z-index: 10;
+		&:before {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 1.5rem;
+		}
+		&.next {
+			transform: translateX(10%);
+		}
+	}
+	h2 {
+		max-width: 72rem;
+		margin: 0 auto;
+	}
+}
+.testimonials__slides {
+
+}
+.testimonials__slide {
+	img {
+		margin: auto;
+	}
+	p {
+		max-width: 85%;
+		margin: 0 auto 2rem auto;
+	}
+}
+.testimonials__meta {
+	color: $brand-green;
+	font-weight: 700;
+}
+.testimonials__button {
+	background-color: $button-color;
+	h1, h2, h3, p, ul, li {
+		color: $body-text-lt;
+	}
+	&:before,
+	&:after {
+		background-color: $button-color;
+	}
+}
+.testimonials__white {
+	background-color: #FFF;
+	h1, h2, h3, p, ul, li {
+		color: $body-text-dk;
+	}
+	&:before,
+	&:after {
+		background-color: #FFF;
+	}
+}
+.testimonials__green {
+	background-color: $brand-green;
+	h1, h2, h3, p, ul, li {
+		color: $body-text-lt;
+	}
+	&:before,
+	&:after {
+		background-color: $brand-green;
+	}
+}
+.testimonials__purple {
+	background-color: $brand-purple;
+	h1, h2, h3, p, ul, li {
+		color: $body-text-lt;
+	}
+	&:before,
+	&:after {
+		background-color: $brand-purple;
+	}
+}
+.testimonials__light {
+	background-color: $body-text-lt;
+	h1, h2, h3, p, ul, li {
+		color: $body-text-dk;
+	}
+	&:before,
+	&:after {
+		background-color: $body-text-lt;
+	}
+}
+.testimonials__dark {
+	background-color: $body-text-dk;	
+	h1, h2, h3, p, ul, li {
+		color: $body-text-lt;
+	}
+	&:before,
+	&:after {
+		background-color: $body-text-dk;
+	}
+}

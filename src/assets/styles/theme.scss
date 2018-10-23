@@ -1,0 +1,82 @@
+@charset 'UTF-8';
+
+/**
+ * Makespace | Built with Slate
+ */
+@import '~normalize.css/normalize';
+@import '../../../node_modules/slick-carousel/slick/slick.scss';
+@import '../fonts/fontawesome-pro/web-fonts-with-css/scss/fontawesome';
+@import '../fonts/fontawesome-pro/web-fonts-with-css/scss/fa-brands';
+@import '../fonts/fontawesome-pro/web-fonts-with-css/scss/fa-light';
+@import '../fonts/fontawesome-pro/web-fonts-with-css/scss/fa-regular';
+@import '../fonts/fontawesome-pro/web-fonts-with-css/scss/fa-solid';
+
+// Settings
+@import './variables';
+
+// Tools
+@import './tools/mixins';
+@import './tools/functions';
+
+// Core
+@import './core/alignment';
+@import './core/container';
+@import './core/errors';
+@import './core/forms';
+@import './core/grid';
+@import './core/helpers';
+@import './core/layout';
+@import './core/media';
+@import './core/responsive-tables';
+@import './core/rte';
+@import './core/typography';
+
+// Components
+@import './components/breadcrumbs';
+@import './components/buttons';
+@import './components/hero-banner';
+@import './components/icons';
+@import './components/makespace-logo';
+@import './components/ocn';
+@import './components/pagination';
+@import './components/placeholders';
+@import './components/responsive-images';
+
+// Sections
+@import './sections/animations';
+@import './sections/blog-posts';
+@import './sections/callout';
+@import './sections/checklist-brands';
+@import './sections/contact-form';
+@import './sections/footer';
+@import './sections/header';
+@import './sections/hero';
+@import './sections/blog-posts';
+@import './sections/collection-list';
+@import './sections/featured-collection';
+@import './sections/hiw-steps';
+@import './sections/image-with-text';
+@import './sections/music-player';
+@import './sections/our-services';
+@import './sections/testimonials';
+
+
+// Templates
+@import './templates/account';
+@import './templates/addresses';
+@import './templates/article';
+@import './templates/blog';
+@import './templates/cart';
+@import './templates/collection';
+@import './templates/gift_card';
+@import './templates/hiw';
+@import './templates/list-collections';
+@import './templates/login';
+@import './templates/page';
+@import './templates/page.contact';
+@import './templates/product';
+@import './templates/register';
+@import './templates/search';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Shrikhand');

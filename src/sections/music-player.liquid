@@ -1,0 +1,87 @@
+<section class="music-player" data-section-type="music-player" data-section-id="{{ section.id }}">
+	<div class="container">
+		<div class="music-player__player">
+			<div>
+				{% if section.settings.heading != blank %}
+					<h2>{{ section.settings.heading }}</h2>
+				{% endif %}
+				{% if section.settings.caption != blank %}
+					<p>{{section.settings.caption }}</p>
+				{% endif %}
+				<ul class="music-player__songlist">
+					{% for block in section.blocks %}
+						<li class="music-player__song">
+							{% if block.settings.track != blank %}
+								<p class="music-player__track">{{ block.settings.track }}</p>
+							{% endif %}
+							{% if block.settings.artist != blank %}
+								<p class="music-player__artist">{{ block.settings.artist }}</p>
+							{% endif %}
+							<div class="music-player__play paused" data-is-playing="false">
+								<audio class="music-player__audio" src="{{ block.settings.song | file_url }}">
+				        	Your browser does not support the <code>audio</code> element.
+				   			</audio>
+				   			{% include 'icon-play' %}
+				   			{% include 'icon-pause' %}
+				   		</div>
+			   		</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="music-player__image">
+				<img src="{{ section.settings.image | img_url: '500x' }}">
+			</div>
+		</div>
+	</div>
+</section>
+{% schema %}
+	{
+		"name": "Music Player",
+		"settings": [
+			{
+				"type": "text",
+				"id": "heading",
+				"label": "Heading"
+			},
+			{
+				"type": "textarea",
+				"id": "caption",
+				"label": "Caption"
+			},
+			{
+				"type": "image_picker",
+				"id": "image",
+				"label": "Section image"
+			}
+		],
+		"blocks": [
+      {
+        "type": "song",
+        "name": "Song",
+        "settings": [ 
+          {
+            "label": "Song",
+            "id": "song",
+            "type": "text"
+          },
+          {
+          	"label": "Artist",
+          	"id": "artist",
+          	"type": "text"
+          },
+          {
+          	"label": "Track",
+          	"id": "track",
+          	"type": "text"
+          }
+        ]
+      }
+    ],
+		"presets": [
+      {
+        "name": "Music Player",
+        "category": "Feature"
+      }
+    ]
+	}
+{% endschema %}

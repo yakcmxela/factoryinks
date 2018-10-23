@@ -1,0 +1,32 @@
+#CartSpecialInstructions {
+	display: inherit;
+	width: 350px;
+	margin: 2rem auto;
+}
+
+.template-cart {
+	h1 {
+		text-align: center;
+	}
+	form {
+		padding-bottom: 12rem;
+		text-align: center;
+	}
+
+	.product__name {
+		text-align: left;
+	}
+	
+	.container {
+		min-height: 50vh;
+		.supports-cookies {
+			text-align: center;
+		}
+	}
+	
+	.subtotal {
+		margin-top: 0;
+		font-family: $font-heading;
+		font-size: 2.5rem;
+	}
+}

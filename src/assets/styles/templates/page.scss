@@ -1,0 +1,15 @@
+.template-page {
+	h1 {
+		@media(max-width: $phablet) {
+			text-align: center;
+		}
+	}
+	.page {
+		
+	}
+	.rte {
+		position: relative;
+		background-color: #FFF;
+		z-index: 11;
+	}
+}
